@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,16 +26,18 @@ public class MainActivity extends AppCompatActivity {
         baseLayout.setBackgroundColor(Color.rgb(0, 255, 0));
         setContentView(baseLayout, params);
 
-        Button btn = new Button(this);
-        btn.setText("버튼입니다");
-        btn.setBackgroundColor(Color.MAGENTA);
-        baseLayout.addView(btn);
+        Button btn1 = new Button(this);
+        btn1.setText("최지연(201958053)");
+        baseLayout.addView(btn1);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "코드로 생성한 버튼입니다", Toast.LENGTH_SHORT).show();
-            }
-        });
+        Button btn2 = new Button(this);
+        btn2.setText("숨김 버튼");
+        btn2.setVisibility(View.INVISIBLE);
+        baseLayout.addView(btn2);
+
+        TextView text = new TextView(this);
+        text.setText("파란색 글씨 텍스트뷰");
+        text.setTextColor(Color.rgb(0, 0, 255));
+        baseLayout.addView(text);
     }
 }
