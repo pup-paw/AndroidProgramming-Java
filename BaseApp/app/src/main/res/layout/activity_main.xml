@@ -7,66 +7,26 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="선택을 시작하겠습니까?"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="17dp"/>
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="시작함"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/startSwitch"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="좋아하는 안드로이드 버전은?"
-        android:textSize="17dp"
-        android:paddingLeft="10dp"/>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:visibility="invisible"
-        android:id="@+id/rg">
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="파이(9.0)"
-            android:id="@+id/radioBtn1"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Q(10.0)"
-            android:id="@+id/radioBtn2"/>
-        <RadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="R(11.0)"
-            android:id="@+id/radioBtn3"/>
-    </RadioGroup>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/img"
-        android:visibility="invisible"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/finishBtn"
-        android:text="종료"/>
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:text="버튼1"
+        android:gravity="right|top"
+        android:background="#00ff00"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/resetBtn"
-        android:text="처음으로"
-        android:layout_gravity="bottom"/>
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:text="버튼1"
+        android:gravity="left|center"
+        android:background="#00ff00"/>
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="right"
+        android:text="버튼1"
+        android:gravity="right|bottom"
+        android:background="#00ff00"/>
 
 </LinearLayout>
