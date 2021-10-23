@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,31 +7,23 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="전화번호"
-            android:textSize="18dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:id="@+id/textView"/>
-        <EditText
+        <AnalogClock
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="000-0000-0000"
-            android:layout_alignBaseline="@+id/textView"
-            android:layout_toRightOf="@+id/textView"/>
-        <Button
-            android:layout_width="wrap_content"
+            android:background="#ff0000"/>
+        <DigitalClock
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="입력"
-            android:layout_alignBaseline="@+id/cancelBtn"
-            android:layout_toLeftOf="@+id/cancelBtn"/>
-        <Button
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:background="#00FF00"/>
+
+        <TextClock
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="취소"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentRight="true"
-            android:id="@+id/cancelBtn"/>
-</RelativeLayout>
+            android:background="#0000FF"
+            android:format12Hour="hh:mm:ss a"
+            android:gravity="center"
+            android:textSize="30sp" />
+
+</LinearLayout>
