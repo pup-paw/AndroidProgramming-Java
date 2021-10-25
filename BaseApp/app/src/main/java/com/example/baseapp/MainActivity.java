@@ -21,6 +21,7 @@ import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,15 +30,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] items = {"CSI-뉴욕", "CSI-라스베가스", "CSI-마이애미", "Friends", "Fringe", "Lost"};
+        Button btnStart, btnStop;
+        final ViewFlipper viewFlipper;
 
-        AutoCompleteTextView auto = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, items);
-        auto.setAdapter(adapter);
+        ImageView image1, image2, image3;
 
-        MultiAutoCompleteTextView multi = (MultiAutoCompleteTextView) findViewById(R.id.multiAutoCompleteTextView1);
-        MultiAutoCompleteTextView.CommaTokenizer token = new MultiAutoCompleteTextView.CommaTokenizer();
-        multi.setTokenizer(token);
-        multi.setAdapter(adapter);
+        btnStart = (Button) findViewById(R.id.btnStart);
+        btnStop = (Button) findViewById(R.id.btnStop);
+        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+
+        image1 = (ImageView) findViewById(R.id.image1);
+        image1.setImageResource(R.drawable.androidpie);
+        image2 = (ImageView) findViewById(R.id.image2);
+        image2.setImageResource(R.drawable.androidq);
+        image3 = (ImageView) findViewById(R.id.image3);
+        image3.setImageResource(R.drawable.androidr);
+
+        viewFlipper.setFlipInterval(1000);
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewFlipper.startFlipping();
+            }
+        });
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewFlipper.stopFlipping();
+            }
+        });
     }
 }
