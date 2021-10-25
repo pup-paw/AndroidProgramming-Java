@@ -1,12 +1,16 @@
 package com.example.baseapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTabHost;
 
+import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.style.TabStopSpan;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
@@ -19,47 +23,47 @@ import android.widget.MultiAutoCompleteTextView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.material.tabs.TabLayout;
+
+public class MainActivity extends TabActivity {//AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnStart, btnStop;
-        final ViewFlipper viewFlipper;
+        TabHost tabHost = getTabHost();
+        ImageView dog, cat, rabbit, bear;
 
-        ImageView image1, image2, image3;
+        TabHost.TabSpec tabSpecDog = tabHost.newTabSpec("DOG").setIndicator("강아지");
+        tabSpecDog.setContent(R.id.dog);
+        tabHost.addTab(tabSpecDog);
+        dog = (ImageView) findViewById(R.id.dog);
+        dog.setImageResource(R.drawable.dog);
 
-        btnStart = (Button) findViewById(R.id.btnStart);
-        btnStop = (Button) findViewById(R.id.btnStop);
-        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        TabHost.TabSpec tabSpecCat = tabHost.newTabSpec("CAT").setIndicator("고양이");
+        tabSpecCat.setContent(R.id.cat);
+        tabHost.addTab(tabSpecCat);
+        cat = (ImageView) findViewById(R.id.cat);
+        cat.setImageResource(R.drawable.cat);
 
-        image1 = (ImageView) findViewById(R.id.image1);
-        image1.setImageResource(R.drawable.androidpie);
-        image2 = (ImageView) findViewById(R.id.image2);
-        image2.setImageResource(R.drawable.androidq);
-        image3 = (ImageView) findViewById(R.id.image3);
-        image3.setImageResource(R.drawable.androidr);
+        TabHost.TabSpec tabSpecRabbit = tabHost.newTabSpec("RABBIT").setIndicator("토끼");
+        tabSpecRabbit.setContent(R.id.rabbit);
+        tabHost.addTab(tabSpecRabbit);
+        rabbit = (ImageView) findViewById(R.id.rabbit);
+        rabbit.setImageResource(R.drawable.rabbit);
 
-        viewFlipper.setFlipInterval(1000);
+        TabHost.TabSpec tabSpecBear = tabHost.newTabSpec("BEAR").setIndicator("곰");
+        tabSpecBear.setContent(R.id.bear);
+        tabHost.addTab(tabSpecBear);
+        bear = (ImageView) findViewById(R.id.bear);
+        bear.setImageResource(R.drawable.bear);
 
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewFlipper.startFlipping();
-            }
-        });
-
-        btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewFlipper.stopFlipping();
-            }
-        });
+        tabHost.setCurrentTab(0);
     }
 }
