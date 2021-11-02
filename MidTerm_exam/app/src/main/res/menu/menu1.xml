@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nameRed"
+        android:title="최지연"/>
+    <item
+        android:id="@+id/nameBlue"
+        android:title="이름"/>
+    <item
+        android:id="@+id/numRed"
+        android:title="201958053"/>
+    <item
+        android:id="@+id/numGreen"
+        android:title="학번"/>
+</menu>
