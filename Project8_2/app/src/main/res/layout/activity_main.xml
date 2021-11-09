@@ -18,6 +18,14 @@
             android:layout_weight="1"
             android:text="이전 그림 "
             android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/5"
+            android:textSize="20dp"
+            android:layout_margin="5dp"
+            android:id="@+id/textView1"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
