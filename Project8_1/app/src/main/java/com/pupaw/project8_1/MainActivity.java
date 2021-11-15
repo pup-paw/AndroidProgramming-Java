@@ -1,8 +1,10 @@
 package com.pupaw.project8_1;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnWrite;
     String filename;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
             public void onDateChanged(DatePicker datePicker, int year, int month, int day) {
                 filename = Integer.toString(year) + "_" + Integer.toString(month+1) + "_" + Integer.toString(day) + ".txt";
                 String str = readDiary(filename);
+                if(str != null) {
+                    edtDiary.setText(str);
+                    btnWrite.setText("수정하기");
+                }
+                else {
+                    edtDiary.setText("일기 없음");
+                    btnWrite.setText("새로 저장");
+                }
                 btnWrite.setEnabled(true);
             }
         });
