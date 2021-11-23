@@ -5,8 +5,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTabHost;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,40 +36,59 @@ import android.widget.ViewFlipper;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends TabActivity {//AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(new MyGraphicView(this));
+    }
 
-        TabHost tabHost = getTabHost();
-        ImageView dog, cat, rabbit, bear;
+    private static class MyGraphicView extends View {
+        public MyGraphicView(Context context) {
+            super(context);
+        }
 
-        TabHost.TabSpec tabSpecDog = tabHost.newTabSpec("DOG").setIndicator("강아지");
-        tabSpecDog.setContent(R.id.dog);
-        tabHost.addTab(tabSpecDog);
-        dog = (ImageView) findViewById(R.id.dog);
-        dog.setImageResource(R.drawable.dog);
+        @Override
+        protected void onDraw(Canvas canvas) {
+            super.onDraw(canvas);
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setColor(Color.GREEN);
+            canvas.drawLine(10, 10, 300, 10, paint);
 
-        TabHost.TabSpec tabSpecCat = tabHost.newTabSpec("CAT").setIndicator("고양이");
-        tabSpecCat.setContent(R.id.cat);
-        tabHost.addTab(tabSpecCat);
-        cat = (ImageView) findViewById(R.id.cat);
-        cat.setImageResource(R.drawable.cat);
+            paint.setColor(Color.BLUE);
+            paint.setStrokeWidth(5);
+            canvas.drawLine( 10, 30, 300, 30, paint);
 
-        TabHost.TabSpec tabSpecRabbit = tabHost.newTabSpec("RABBIT").setIndicator("토끼");
-        tabSpecRabbit.setContent(R.id.rabbit);
-        tabHost.addTab(tabSpecRabbit);
-        rabbit = (ImageView) findViewById(R.id.rabbit);
-        rabbit.setImageResource(R.drawable.rabbit);
+            paint.setColor(Color.RED);
+            paint.setStrokeWidth(0);
 
-        TabHost.TabSpec tabSpecBear = tabHost.newTabSpec("BEAR").setIndicator("곰");
-        tabSpecBear.setContent(R.id.bear);
-        tabHost.addTab(tabSpecBear);
-        bear = (ImageView) findViewById(R.id.bear);
-        bear.setImageResource(R.drawable.bear);
+            paint.setStyle(Paint.Style.FILL);
+            Rect rect1 = new Rect(10, 50, 10+100, 50+100);
+            canvas.drawRect(rect1, paint);
 
-        tabHost.setCurrentTab(0);
+            paint.setStyle(Paint.Style.STROKE);
+            Rect rect2 = new Rect(130, 50, 130+100, 50+100);
+            canvas.drawRect(rect2, paint);
+
+            RectF rect3 = new RectF(250, 50, 250+100, 50+100);
+            canvas.drawRoundRect(rect3, 20, 20,  paint);
+
+            canvas.drawCircle(60, 220, 50, paint);
+
+            paint.setStrokeWidth(5);
+            Path path1 = new Path();
+            path1.moveTo(10, 290);
+            path1.lineTo(10+50, 290+50);
+            path1.lineTo(10+100, 290);
+            path1.lineTo(10+150, 290+50);
+            path1.lineTo(10+200, 290);
+            canvas.drawPath(path1, paint);
+
+            paint.setStrokeWidth(0);
+            paint.setTextSize(30);
+            canvas.drawText("안드로이드", 10, 390, paint);
+        }
     }
 }
