@@ -54,41 +54,21 @@ public class MainActivity extends AppCompatActivity {
             super.onDraw(canvas);
             Paint paint = new Paint();
             paint.setAntiAlias(true);
-            paint.setColor(Color.GREEN);
-            canvas.drawLine(10, 10, 300, 10, paint);
 
-            paint.setColor(Color.BLUE);
-            paint.setStrokeWidth(5);
-            canvas.drawLine( 10, 30, 300, 30, paint);
+            paint.setColor(Color.BLACK);
+            paint.setStrokeWidth(30);
+            canvas.drawLine(20, 40, 400+20, 40, paint);
 
-            paint.setColor(Color.RED);
-            paint.setStrokeWidth(0);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            canvas.drawLine(20, 90, 400+20, 90, paint);
 
-            paint.setStyle(Paint.Style.FILL);
-            Rect rect1 = new Rect(10, 50, 10+100, 50+100);
-            canvas.drawRect(rect1, paint);
+            canvas.drawOval(new RectF(50, 140, 50+300, 140+140), paint);
 
-            paint.setStyle(Paint.Style.STROKE);
-            Rect rect2 = new Rect(130, 50, 130+100, 50+100);
-            canvas.drawRect(rect2, paint);
+            canvas.drawArc(new RectF(50, 280, 50+150, 280+150), 45, 100, true, paint);
 
-            RectF rect3 = new RectF(250, 50, 250+100, 50+100);
-            canvas.drawRoundRect(rect3, 20, 20,  paint);
-
-            canvas.drawCircle(60, 220, 50, paint);
-
-            paint.setStrokeWidth(5);
-            Path path1 = new Path();
-            path1.moveTo(10, 290);
-            path1.lineTo(10+50, 290+50);
-            path1.lineTo(10+100, 290);
-            path1.lineTo(10+150, 290+50);
-            path1.lineTo(10+200, 290);
-            canvas.drawPath(path1, paint);
-
-            paint.setStrokeWidth(0);
-            paint.setTextSize(30);
-            canvas.drawText("안드로이드", 10, 390, paint);
+            Rect rect1 = new Rect(50, 500, 50+200, 500+200);
+            paint.setColor(Color.a);
+            canvas
         }
     }
 }
