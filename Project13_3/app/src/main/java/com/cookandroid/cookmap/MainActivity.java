@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onMapClick(LatLng point) {
                 videoMark = new GroundOverlayOptions().image(
                         BitmapDescriptorFactory
-                                .fromResource(R.drawable.presence_video_busy))
+                                .fromResource(R.drawable.rate_star_small_on))
                         .position(point, 100f, 100f);
                 gMap.addGroundOverlay(videoMark);
             }
@@ -54,7 +54,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreateOptionsMenu(menu);
         menu.add(0, 1, 0, "위성 지도");
         menu.add(0, 2, 0, "일반 지도");
-        menu.add(0, 3, 0, "월드컵경기장 바로가기");
+        Menu submenu = menu.addSubMenu("유명장소 바로가기>>");
+        submenu.add(0, 3, 0, "한신대학교 60주년기념관(장준하통일관)");
+        submenu.add(0, 4, 0, "병점역");
+        submenu.add(0, 5, 0, "몰디브 바드후섬");
         return true;
     }
 
@@ -69,7 +72,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return true;
             case 3:
                 gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
-                        37.568256, 126.897240), 15));
+                        37.19281251311105, 127.0274253696381), 15));
+                return true;
+            case 4:
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        37.20684119923209, 127.033267208403), 15));
+                return true;
+            case 5:
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        5.858111290035612, 72.98951963951289), 15));
                 return true;
         }
         return false;
