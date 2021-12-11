@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/tab1"
+        android:enabled="true"
+        android:icon="@drawable/btn_clicked_reservation"
+        app:showAsAction="ifRoom"
+        android:title="승차권예매" />
+    <item
+        android:id="@+id/tab2"
+        android:enabled="true"
+        android:icon="@drawable/btn_clicked_confirmation"
+        app:showAsAction="ifRoom"
+        android:title="승차권확인" />
+    <item
+        android:id="@+id/tab3"
+        android:enabled="true"
+        android:icon="@drawable/btn_clicked_seasonpass"
+        app:showAsAction="ifRoom"
+        android:title="정기/회수" />
+    <item
+        android:id="@+id/tab4"
+        android:enabled="true"
+        android:icon="@drawable/btn_unclicked_travelpackage"
+        app:showAsAction="ifRoom"
+        android:title="여행상품" />
+</menu>

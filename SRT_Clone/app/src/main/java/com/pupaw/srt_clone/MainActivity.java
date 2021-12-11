@@ -1,34 +1,68 @@
 package com.pupaw.srt_clone;
 
+import static com.pupaw.srt_clone.R.id.tab1;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton exchangeBtn, reservationBtn, confirmationBtn, seasonPassBtn, travelPackageBtn;
-    ImageView infoImg, noticeImg;
+    LinearLayout container;
+    BottomNavigationView bottomNavigationView;
+    ReservationFragment reservationFragment;
+    ConfirmationFragment confirmationFragment;
+    SeasonpassFragment seasonpassFragment;
+    TravlepackageFragment travlepackageFragment;
+
+    @Override
+    public boolean onNavigateUpFromChild(Activity child) {
+        return super.onNavigateUpFromChild(child);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        exchangeBtn = (ImageButton) findViewById(R.id.exchangeBtn);
-        exchangeBtn.setImageResource(R.drawable.btn_exchange);
+        reservationFragment = new ReservationFragment();
+        confirmationFragment = new ConfirmationFragment();
+        seasonpassFragment = new SeasonpassFragment();
+        travlepackageFragment = new TravlepackageFragment();
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        container = (LinearLayout) findViewById(R.id.container);
 
-        infoImg = (ImageView) findViewById(R.id.infoImg);
-        noticeImg = (ImageView) findViewById(R.id.noticeImg);
-        infoImg.setImageResource(R.drawable.banner_info);
-        noticeImg.setImageResource(R.drawable.banner_notice);
-
-        reservationBtn = (ImageButton) findViewById(R.id.reservationBtn);
-        confirmationBtn = (ImageButton) findViewById(R.id.confirmationBtn);
-        seasonPassBtn = (ImageButton) findViewById(R.id.seasonPassBtn);
-        travelPackageBtn = (ImageButton) findViewById(R.id.travelPackageBtn);
-        reservationBtn.setImageResource(R.drawable.btn_clicked_reservation);
-        confirmationBtn.setImageResource(R.drawable.btn_unclicked_confirmation);
-        seasonPassBtn.setImageResource(R.drawable.btn_unclicked_seasonpass);
-        travelPackageBtn.setImageResource(R.drawable.btn_clicked_travelpackage);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, reservationFragment).commit();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.tab1: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, reservationFragment).commit();
+                        return true;
+                    }
+                    case R.id.tab2: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, confirmationFragment).commit();
+                        return true;
+                    }
+                    case R.id.tab3: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, seasonpassFragment).commit();
+                        return true;
+                    }
+                    case R.id.tab4: {
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, travlepackageFragment).commit();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 }
