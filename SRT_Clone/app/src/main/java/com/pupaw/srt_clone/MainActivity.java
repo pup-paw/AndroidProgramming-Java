@@ -103,7 +103,16 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                     case R.id.tab4: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, travlepackageFragment).commit();
+                        AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+                        dlg.setMessage("시스템 점검 중 입니다.");
+                        dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                        dlg.show();
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, travlepackageFragment).commit();
                         return true;
                     }
                 }

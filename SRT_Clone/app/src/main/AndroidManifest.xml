@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".DepartureDate"
+            android:exported="true" />
+        <activity
             android:name=".StationSelect"
             android:exported="true" />
         <activity

@@ -12,17 +12,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ReservationFragment extends Fragment {
-    TextView tvDepartureName;
-    TextView tvArrivalName;
+    TextView tvDepartureName, tvArrivalName;
+    RelativeLayout calenderTitle;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         ViewGroup reservationView = (ViewGroup) inflater.inflate(R.layout.fragment_reservation, container, false);
+
+        calenderTitle = (RelativeLayout) reservationView.findViewById(R.id.calenderTitle);
+        calenderTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(reservationView.getContext().getApplicationContext(), DepartureDate.class);
+                startActivityForResult(intent, 102);
+            }
+        });
 
         tvDepartureName = (TextView) reservationView.findViewById(R.id.tvDepartureName);
         tvArrivalName = (TextView) reservationView.findViewById(R.id.tvArrivalName);
@@ -87,6 +97,8 @@ public class ReservationFragment extends Fragment {
             tvDepartureName.setText(departureArea);
             String arrivalArea = data.getStringExtra("arrivalArea");
             tvArrivalName.setText(arrivalArea);
+        } else if(requestCode == 102) {
+
         }
     }
 }

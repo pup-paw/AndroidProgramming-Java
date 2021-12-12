@@ -14,6 +14,8 @@ public class ConfirmationFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewGroup confirmationView = (ViewGroup) inflater.inflate(R.layout.fragment_confirmation, container, false);
+
         return inflater.inflate(R.layout.fragment_confirmation, container, false);
     }
 }
