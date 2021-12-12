@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="resId">
+        <item>@drawable/btn_listview</item>
+        <item>@drawable/btn_listview</item>
+        <item>@drawable/btn_listview</item>
+        <item>@drawable/btn_listview</item>
+        <item>@drawable/btn_listview</item>
+    </integer-array>
+    <string-array name="text1">
+        <item>승차권 구매 이력</item>
+        <item>신용카드 결제내역</item>
+        <item>회원카드</item>
+        <item>할인쿠폰조회/등록</item>
+        <item>회원 정보조회/변경</item>
+    </string-array>
+    <string-array name="text2">
+        <item>3개월 이내 내역 조회 가능</item>
+        <item></item>
+        <item>회원QR코드</item>
+        <item>고객할인 쿠폰을 조회 하세요</item>
+        <item></item>
+    </string-array>
+</resources>
