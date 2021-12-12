@@ -41,6 +41,7 @@
                 android:rowCount="3">
 
                 <TextView
+                    android:id="@+id/tvDeparture"
                     android:layout_row="0"
                     android:layout_column="0"
                     android:layout_columnSpan="4"
@@ -52,6 +53,7 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/tvDepartureName"
                     android:layout_row="1"
                     android:layout_column="0"
                     android:layout_columnSpan="4"
@@ -73,6 +75,7 @@
                     android:backgroundTint="#A2A2A2" />
 
                 <TextView
+                    android:id="@+id/tvArrival"
                     android:layout_row="0"
                     android:layout_column="5"
                     android:layout_columnSpan="4"
@@ -84,6 +87,7 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/tvArrivalName"
                     android:layout_row="1"
                     android:layout_column="5"
                     android:layout_columnSpan="4"
@@ -125,6 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="출발일    2021년 12월 1일(수) 14시이후"
                     android:textAlignment="center"
                     android:textSize="20dp" />
@@ -172,6 +177,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn1"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -183,6 +189,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount1"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -195,6 +202,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn1"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -205,6 +213,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn2"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -216,6 +225,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount2"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -228,6 +238,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn2"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -238,6 +249,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn3"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -249,6 +261,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount3"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -261,6 +274,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn3"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="1"
@@ -304,6 +318,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn4"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -315,6 +330,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount4"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -327,6 +343,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn4"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -337,6 +354,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn5"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -348,6 +366,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount5"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -360,6 +379,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn5"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -370,6 +390,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/minusBtn6"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -381,6 +402,7 @@
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/tvCount6"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
@@ -393,6 +415,7 @@
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/plusBtn6"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
                     android:layout_row="3"
