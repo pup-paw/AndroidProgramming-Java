@@ -1,5 +1,6 @@
 package com.pupaw.srt_clone;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ReservationFragment extends Fragment {
+    TextView tvDepartureName;
+    TextView tvArrivalName;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         ViewGroup reservationView = (ViewGroup) inflater.inflate(R.layout.fragment_reservation, container, false);
+
+        tvDepartureName = (TextView) reservationView.findViewById(R.id.tvDepartureName);
+        tvArrivalName = (TextView) reservationView.findViewById(R.id.tvArrivalName);
+
+                TextView[] tvDepartureArrival = new TextView[4];
+        int[] tvDepartureArrivalId = {R.id.tvDeparture, R.id.tvDepartureName, R.id.tvArrival, R.id.tvArrivalName};
+        for (int i = 0; i < 4; i++) {
+            tvDepartureArrival[i] = (TextView) reservationView.findViewById(tvDepartureArrivalId[i]);
+            tvDepartureArrival[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(reservationView.getContext().getApplicationContext(), StationSelect.class);
+                    startActivityForResult(intent, 101);
+                }
+            });
+        }
+
+
         TextView[] tvCounts = new TextView[6];
         int[] tvCountsId = {R.id.tvCount1, R.id.tvCount2, R.id.tvCount3, R.id.tvCount4, R.id.tvCount5, R.id.tvCount6};
         for (int i = 0; i < 6; i++) {
@@ -53,5 +76,17 @@ public class ReservationFragment extends Fragment {
 
 
         return reservationView;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 101) {
+            String departureArea = data.getStringExtra("departureArea");
+            tvDepartureName.setText(departureArea);
+            String arrivalArea = data.getStringExtra("arrivalArea");
+            tvArrivalName.setText(arrivalArea);
+        }
     }
 }
