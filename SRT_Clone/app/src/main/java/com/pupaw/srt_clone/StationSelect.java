@@ -2,10 +2,13 @@ package com.pupaw.srt_clone;
 
 import static android.graphics.Color.rgb;
 
+import static com.pupaw.srt_clone.R.drawable.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,8 +40,8 @@ public class StationSelect extends AppCompatActivity {
                 departureBtn.setText("수서");
                 arrivalBtn.setTextColor(rgb(145,145,145));
                 arrivalBtn.setText("광주송성");
-                srtBtn.setImageResource(R.drawable.btn_srt);
-                korailBtn.setImageResource(R.drawable.btn_korail_unclicked);
+                srtBtn.setImageResource(btn_srt);
+                korailBtn.setImageResource(btn_korail_unclicked);
             }
         });
 
@@ -46,16 +49,16 @@ public class StationSelect extends AppCompatActivity {
         srtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                srtBtn.setImageResource(R.drawable.btn_srt);
-                korailBtn.setImageResource(R.drawable.btn_korail_unclicked);
+                srtBtn.setImageResource(btn_srt);
+                korailBtn.setImageResource(btn_korail_unclicked);
             }
         });
         korailBtn = (ImageButton) findViewById(R.id.korailBtn);
         korailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                srtBtn.setImageResource(R.drawable.btn_srt_unclicked);
-                korailBtn.setImageResource(R.drawable.btn_korail);
+                srtBtn.setImageResource(btn_srt_unclicked);
+                korailBtn.setImageResource(btn_korail);
             }
         });
 
@@ -75,6 +78,12 @@ public class StationSelect extends AppCompatActivity {
                     btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            for(Button btn : areaBtn) {
+                                btn.setTextColor(rgb(107,107,107));
+                                btn.setBackgroundColor(rgb(255,255,255));
+                            }
+                            btn.setTextColor(rgb(142,53,118));
+                            btn.setBackgroundColor(rgb(240,228,236));
                             departureBtn.setText(btn.getText());
                         }
                     });
@@ -92,6 +101,12 @@ public class StationSelect extends AppCompatActivity {
                     btn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            for(Button btn : areaBtn) {
+                                btn.setTextColor(rgb(107,107,107));
+                                btn.setBackgroundColor(rgb(255,255,255));
+                            }
+                            btn.setTextColor(rgb(142,53,118));
+                            btn.setBackgroundColor(rgb(240,228,236));
                             arrivalBtn.setText(btn.getText());
                         }
                     });

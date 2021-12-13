@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/drawable/button_corner_right.xml" value="0.3921875" />
         <entry key="app/src/main/res/drawable/button_corner_round.xml" value="0.228125" />
         <entry key="app/src/main/res/drawable/button_corner_stroke.xml" value="0.228125" />
+        <entry key="app/src/main/res/drawable/button_stroke.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/drawable/color.xml" value="0.228125" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3921875" />
         <entry key="app/src/main/res/drawable/selected_color.xml" value="0.228125" />
@@ -20,8 +21,8 @@
         <entry key="app/src/main/res/layout/activity_station_select.xml" value="0.30078563411896747" />
         <entry key="app/src/main/res/layout/fragment_confirmation.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/fragment_reservation.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_seasonpass.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_reservation.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_seasonpass.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_travlepackage.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/listview_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/quick_menu.xml" value="0.25" />

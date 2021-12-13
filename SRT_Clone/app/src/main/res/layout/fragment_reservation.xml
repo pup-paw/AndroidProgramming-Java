@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F0F0"
+    android:orientation="vertical"
     tools:context=".ReservationFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/header_title"
+        android:background="@color/white"
+        android:layout_alignParentTop="true">
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_menu"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_wf_srt"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"/>
+        <Button
+            android:id="@+id/chatbotBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_chatbot"
+            android:layout_toLeftOf="@+id/quickMenuBtn"
+            android:layout_centerVertical="true"/>
+        <Button
+            android:id="@+id/quickMenuBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_mypage"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -133,17 +169,18 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="40dp"
                     android:background="@drawable/img_calendar" />
+
                 <TextView
-                    android:layout_marginLeft="10dp"
                     android:id="@+id/dateText"
-                    android:layout_toRightOf="@+id/calenderImg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/calenderImg"
                     android:text="출발일"
                     android:textColor="#4B4B4B"
-                    android:textStyle="bold"
                     android:textSize="15dp"
-                    android:layout_centerVertical="true" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/dateInfoText"
@@ -499,4 +536,4 @@
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>

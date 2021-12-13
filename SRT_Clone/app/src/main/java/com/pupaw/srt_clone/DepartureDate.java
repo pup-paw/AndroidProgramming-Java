@@ -1,59 +1,80 @@
 package com.pupaw.srt_clone;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.TimePicker;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 public class DepartureDate extends AppCompatActivity {
-    MaterialCalendarView calendar1;
+    DatePicker datePicker1;
+    TimePicker timePicker1;
+    Button closeBtn, selectBtn;
+    String selectedDate;
+    String selectedHour;
 
+    private void setSelectedDate(String date) {
+        this.selectedDate = date;
+    }
+
+    private void setSelectedHour(String hour) {
+        this.selectedHour = hour;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departure_date);
-    }
 
-    class MyAdapter extends BaseAdapter {
-        Context context;
-        int layout;
-        int img[];
-        LayoutInflater inf;
+        datePicker1 = (DatePicker) findViewById(R.id.datePicker1);
+        datePicker1.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
+                setSelectedDate(i + "년 " + i1 + "월 " + i2 + "일()");
+            }
+        });
+        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+        timePicker1.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int i, int i1) {
+                setSelectedHour(i + "시");
+            }
+        });
+        selectBtn = (Button) findViewById(R.id.selectBtn);
+        selectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("date", selectedDate);
+                intent.putExtra("hour", selectedHour);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
 
-        public MyAdapter(Context context, int layout, int[] img) {
-            this.context = context;
-            this.layout = layout;
-            this.img = img;
-            inf = (LayoutInflater) context.getSystemService
-                    (Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() { // 보여줄 데이터의 총 개수 - 꼭 작성해야 함
-            return img.length;
-        }
-
-        @Override
-        public Object getItem(int position) { // 해당행의 데이터- 안해도 됨
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) { // 해당행의 유니크한 id - 안해도 됨
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
-        }
+        closeBtn = (Button) findViewById(R.id.closeBtn);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

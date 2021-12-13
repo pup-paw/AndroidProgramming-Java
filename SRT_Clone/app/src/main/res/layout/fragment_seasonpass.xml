@@ -1,14 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SeasonpassFragment">
+    android:background="#EEEFF1"
+    android:orientation="vertical"
+    tools:context=".ConfirmationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/header_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white">
 
-</FrameLayout>
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/btn_menu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="정기/회수승차권 발권"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:columnCount="2"
+                android:rowCount="1">
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:background="@color/white"
+                    android:text="정기승차권"
+                    android:textColor="#8E3575"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:background="#BBBBBB"
+                    android:text="회수승차권"
+                    android:textColor="#E9E9E9"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:background="#ffffff"
+                android:columnCount="9"
+                android:rowCount="3">
+
+                <TextView
+                    android:id="@+id/tvDeparture"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnSpan="4"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:gravity="center"
+                    android:text="출발"
+                    android:textColor="#6A6A6A"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvDepartureName"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnSpan="4"
+                    android:layout_gravity="fill_horizontal"
+                    android:gravity="center"
+                    android:text="수서"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/exchangeBtn"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_row="0"
+                    android:layout_rowSpan="0"
+                    android:layout_column="4"
+                    android:background="@drawable/btn_exchange"
+                    android:backgroundTint="#A2A2A2" />
+
+                <TextView
+                    android:id="@+id/tvArrival"
+                    android:layout_row="0"
+                    android:layout_column="5"
+                    android:layout_columnSpan="4"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:gravity="center"
+                    android:text="도착"
+                    android:textColor="#6A6A6A"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvArrivalName"
+                    android:layout_row="1"
+                    android:layout_column="5"
+                    android:layout_columnSpan="4"
+                    android:layout_gravity="fill_horizontal"
+                    android:gravity="center"
+                    android:text="광주송정"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="top"
+                    android:background="@drawable/button_corner_purple"
+                    android:text="SRT역 지도로 선택"
+                    android:textColor="#893A72"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/calenderTitle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/calenderImg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/img_calendar" />
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/calenderImg"
+                    android:text="사용개시일"
+                    android:textColor="#4B4B4B"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/dateInfoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/dateText"
+                    android:text="2021년 12월 1일(수)"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="승객유형"
+                    android:textColor="#3B3B3B" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:columnCount="2"
+                    android:rowCount="1">
+
+                    <Button
+                        android:layout_columnWeight="1"
+                        android:background="@color/white"
+                        android:text="만25세 이상"
+                        android:textColor="#E9E9E9"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/button_stroke_checked"
+                        android:text="만25세 미만"
+                        android:textColor="#8E3575"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </GridLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="사용기"
+                    android:textColor="#3B3B3B" />
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:columnCount="2"
+                    android:rowCount="1">
+
+                    <Button
+                        android:layout_columnWeight="1"
+                        android:background="@drawable/button_stroke_checked"
+                        android:text="1개월"
+                        android:textColor="#8E3575"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_columnWeight="1"
+                        android:background="@color/white"
+                        android:text="10일"
+                        android:textColor="#E9E9E9"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                </GridLayout>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button_corner"
+                android:backgroundTint="#7F2E68"
+                android:text="열차 조회하기"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2F2F2F"
+                android:text="정기승차권 안내"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#676767"
+                android:text="※ 정기승차권은 주중 및 주말, 공휴일에 사용하실 수 있습니다. (단, 명절대수송 기간 이용불가)"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="15dp"/>
+            <TextView
+                android:layout_marginBottom="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#676767"
+                android:text="※ 회원이름으로 승차권에 표기된 고객에 한해서만 사용하실 수 있습니다."
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="15dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
